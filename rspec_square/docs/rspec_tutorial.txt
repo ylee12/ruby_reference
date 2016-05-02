@@ -1,0 +1,81 @@
+
+See this for reference: Instant Rspec Test Driven Development
+
+How to do it...
+
+    Install RSpec:
+
+    $ gem install rspec
+
+    
+    Next, prepare the directory structure:
+
+    $ mkdir lib
+
+    Now run RSpec:
+
+    $ rspec --init
+
+    To show what we're testing, we'll change the .rspec file generated for us, replacing progress with doc:
+
+    --color
+    --format doc
+
+    We can now run RSpec on our empty specs directory and verify we have the gem installed:
+
+    $ rspec spec
+    No examples found.
+
+    Finished in 0.00004 seconds
+    0 examples, 0 failures
+
+How it works…
+
+We'll work with a sample code base that we will later integrate into a Rails 3 application. The code used for demonstration purposes is a very simple and fictitious system that works with geographical coordinates.
+
+While not strictly necessary at this stage, the lib directory is where the code that is written to satisfy the tests will reside.
+
+RSpec creates a spec directory, a spec_helper.rb file within that directory, and a .rspec file in the current directory with sensible defaults.
+
+If you have a problem locating the .rspec file, it's because the file is hidden. A command-line editor such as Vim has no problem opening a hidden file, for example vim .rspec, but using a common dialog box to select a hidden file can be difficult. In OS X, while the Open dialog box is shown, you can press command + shift + . (period) to temporarily show these hidden files.
+There's more...
+
+The previous .rspec file contains default configuration options, which are applied while executing the rspec command-line program. You must execute rspec from the directory containing the .rspec file if you want the options contained within to be applied. Each line in the .rspec file contains a different option. Other options include:
+
+    --format progress: Displays progress dots for each executed spec
+    --format doc: Renders a wordy documentation
+    --format html: Displays HTML-formatted output, which can be redirected to a file and that file can then be viewed in a web browser like Firefox (see -o in the next bullet item)
+    -o, --out: Redirects output to the specified file
+    -c, --color: Use a color in the terminal output (green for passing and red for failing)
+    --fail-fast: Stops execution when the first failing spec is encountered
+
+These are not all the options. For a complete list check the rspec command's help:
+
+$ rspec --help
+
+
+
+
+
+2. Preparing the RSpec environment (Simple)
+
+In this section, we'll setup a new project that will be used with RSpec and lay some of the foundation source code for the later sections in this book.
+How to do it...
+
+    First, create a lib subdirectory under spec and create the location_spec.rb file:
+
+    $ mkdir spec/lib
+    $ touch spec/lib/location_spec.rb
+
+    We'll begin this process by authoring a specification in spec/lib/location_spec.rb:
+
+    require "spec_helper"
+    describe Location do
+    end
+
+    Save the file and run it from your terminal:
+
+    $ rspec spec
+
+    You'll see a stack trace alerting that there is an uninitialized constant named Location:
+
