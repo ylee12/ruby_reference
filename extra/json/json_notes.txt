@@ -1,0 +1,63 @@
+
+JSON Arrays
+
+JSON arrays are written inside square brackets.
+
+Just like JavaScript, a JSON array can contain multiple objects:
+Example
+"employees":[
+    {"firstName":"John", "lastName":"Doe"},
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter","lastName":"Jones"}
+]
+
+=======================================
+
+
+Example
+var employees = [
+    {"firstName":"John", "lastName":"Doe"},
+    {"firstName":"Anna", "lastName":"Smith"},
+    {"firstName":"Peter","lastName": "Jones"}
+];
+
+The first entry in the JavaScript object array can be accessed like this:
+Example
+// returns John Doe
+employees[0].firstName + " " + employees[0].lastName;
+
+It can also be accessed like this:
+Example
+// returns John Doe
+employees[0]["firstName"] + " " + employees[0]["lastName"];
+
+Data can be modified like this:
+Example
+employees[0].firstName = "Gilbert";
+
+It can also be modified like this:
+Example
+employees[0]["firstName"] = "Gilbert";
+
+
+==============================================
+JSON Files
+
+    The file type for JSON files is ".json"
+    The MIME type for JSON text is "application/json"
+
+
+=========================
+
+JSON to JAVA Script Object
+
+The JavaScript function JSON.parse(text) can be used to convert a JSON text into a JavaScript object:
+
+var obj = JSON.parse(text);
+
+my_obj = JSON.parse (my_str);
+
+
+
+
+
